@@ -24,7 +24,15 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        {% if request.user.is_admin %}
+            <div class="col-md-3">
+                <a class="text-gray-500 hover:text-blue-500 " href="{% url 'user-create' %}">
+                    Create user
+                </a>
+            </div>
+            {% endif %}
+
+      <div class="collapse navbar-collapse col-md-3" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Logout</a>

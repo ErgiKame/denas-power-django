@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block container %}
+
 <table class="table">
     <tr>
         <thead class="thead-light">
@@ -20,6 +21,16 @@
                 <td>{{user.username}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.phone}}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                    <a href="{% url 'user-update' user.pk %}" class="text-indigo-600 hover:text-indigo-900">
+                        Update
+                    </a>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="{% url 'user-delete' user.pk %}" class="text-indigo-600 hover:text-indigo-900">
+                            Delete
+                        </a>
+                    </td>
             </tr>
             {% endfor %}
         </tbody>

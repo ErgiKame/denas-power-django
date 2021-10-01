@@ -1,7 +1,9 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+
 from .models import User
 
-class UserCreateForm(forms.ModelForm):
+class UserCreateForm(UserCreationForm):
     class Meta:
         model = User
         # fields = '__all__'   <------ Use this for all fields
@@ -12,4 +14,11 @@ class UserCreateForm(forms.ModelForm):
             'email',
             'phone',
             'is_admin',
+            'password1',
+            'password2',
         )
+        def save(self, commit=True):
+            user = super(UserCreateForm, self).save(commit=False)
+            if commit:
+                user.save()
+            return user

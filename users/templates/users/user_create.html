@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block container %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Create a New User</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <label>{{ form.first_name.label }}</label>
+                    {{ form.first_name }}
+            <br>
+            <label>{{ form.last_name.label }}</label>
+                    {{ form.last_name }}
+            <br>
+            <label>{{ form.username.label }}</label>
+                    {{ form.username }}
+            <br>
+            <label>{{ form.email.label }}</label>
+                    {{ form.email }}
+            <br>
+            <label>{{ form.phone.label }}</label>
+                    {{ form.phone }}
+            <br>
+            <label>{{ form.password1.label }}</label>
+                    {{ form.password1 }}
+            <br>
+            <label>{{ form.password2.label }}</label>
+                    {{ form.password2 }}
+            <br>
+            <label>Administrator?</label>
+                {{ form.is_admin }}
+            <br>
+
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
